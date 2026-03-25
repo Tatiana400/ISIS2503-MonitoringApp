@@ -292,9 +292,9 @@ output "alarms_public_ips" {
 }
 
 # Salida. Muestra la dirección IP pública de la instancia de la aplicación de Monitoring.
-output "monitoring_public_ip" {
+output "monitoring_public_ips" {
   description = "Public IP address for the monitoring service application"
-  value       = { for instance in aws_instance.monitoring : instance.public_ip }
+  value       = [ for instance in aws_instance.monitoring : instance.public_ip ]
 }
 
 # Salida. Muestra las direcciones IP privadas de las instancias de la aplicación de alarmas.
@@ -304,9 +304,9 @@ output "alarms_private_ips" {
 }
 
 # Salida. Muestra la dirección IP privada de la instancia de la aplicación de Monitoring.
-output "monitoring_private_ip" {
+output "monitoring_private_ips" {
   description = "Private IP address for the monitoring service application"
-  value       = { for instance in aws_instance.monitoring : instance.private_ip }
+  value       = [ for instance in aws_instance.monitoring : instance.private_ip ]
 }
 
 # Salida. Muestra la dirección IP privada de la instancia de la base de datos PostgreSQL.
